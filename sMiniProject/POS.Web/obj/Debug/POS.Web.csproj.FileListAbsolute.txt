@@ -140,3 +140,31 @@ D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Web\bin\
 D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Web\obj\Debug\POS.Web.csprojResolveAssemblyReference.cache
 D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Web\obj\Debug\POS.Web.dll
 D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Web\obj\Debug\POS.Web.pdb
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\POS.Web.dll.config
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\POS.Web.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\POS.Web.pdb
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\EntityFramework.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\EntityFramework.SqlServer.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\POS.Model.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\POS.Repo.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\POS.ViewModel.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\System.Web.Helpers.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\System.Web.Mvc.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\System.Web.Razor.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\System.Web.Webpages.Deployment.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\System.Web.Webpages.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\System.Web.Webpages.Razor.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\POS.Model.pdb
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\POS.Repo.pdb
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\POS.ViewModel.pdb
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\EntityFramework.xml
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\EntityFramework.SqlServer.xml
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\System.Web.Razor.xml
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\System.Web.Webpages.xml
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\System.Web.Webpages.Deployment.xml
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\System.Web.Webpages.Razor.xml
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\System.Web.Helpers.xml
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\bin\System.Web.Mvc.xml
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\obj\Debug\POS.Web.csprojResolveAssemblyReference.cache
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\obj\Debug\POS.Web.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Web\obj\Debug\POS.Web.pdb

@@ -58,3 +58,13 @@ D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.ViewMode
 D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.ViewModel\obj\Debug\POS.ViewModel.csprojResolveAssemblyReference.cache
 D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.ViewModel\obj\Debug\POS.ViewModel.dll
 D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.ViewModel\obj\Debug\POS.ViewModel.pdb
+D:\KALBE2017\GitHub\sMiniProject\POS.ViewModel\bin\Debug\POS.ViewModel.dll.config
+D:\KALBE2017\GitHub\sMiniProject\POS.ViewModel\bin\Debug\POS.ViewModel.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.ViewModel\bin\Debug\POS.ViewModel.pdb
+D:\KALBE2017\GitHub\sMiniProject\POS.ViewModel\bin\Debug\EntityFramework.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.ViewModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.ViewModel\bin\Debug\EntityFramework.xml
+D:\KALBE2017\GitHub\sMiniProject\POS.ViewModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\KALBE2017\GitHub\sMiniProject\POS.ViewModel\obj\Debug\POS.ViewModel.csprojResolveAssemblyReference.cache
+D:\KALBE2017\GitHub\sMiniProject\POS.ViewModel\obj\Debug\POS.ViewModel.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.ViewModel\obj\Debug\POS.ViewModel.pdb

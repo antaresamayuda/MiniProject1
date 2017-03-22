@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using POS.Model;
 using POS.ViewModel;
 
+//edit buat ngetest push and pull tapi coba terus sampe bisa
+
+
+
 namespace POS.Repo
 {
     public class TrxTransferStockRepo

@@ -48,3 +48,13 @@ D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\bi
 D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\obj\Debug\POS.Model.csprojResolveAssemblyReference.cache
 D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\obj\Debug\POS.Model.dll
 D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\obj\Debug\POS.Model.pdb
+D:\KALBE2017\GitHub\sMiniProject\POS.Model\bin\Debug\POS.Model.dll.config
+D:\KALBE2017\GitHub\sMiniProject\POS.Model\bin\Debug\POS.Model.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Model\bin\Debug\POS.Model.pdb
+D:\KALBE2017\GitHub\sMiniProject\POS.Model\bin\Debug\EntityFramework.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Model\bin\Debug\EntityFramework.xml
+D:\KALBE2017\GitHub\sMiniProject\POS.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\KALBE2017\GitHub\sMiniProject\POS.Model\obj\Debug\POS.Model.csprojResolveAssemblyReference.cache
+D:\KALBE2017\GitHub\sMiniProject\POS.Model\obj\Debug\POS.Model.dll
+D:\KALBE2017\GitHub\sMiniProject\POS.Model\obj\Debug\POS.Model.pdb
