@@ -1,0 +1,160 @@
+﻿@model IEnumerable<POS.ViewModel.MstEmployeeViewModel>
+@{
+    ViewBag.Title = "Employee";
+}
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td> 
+            @{
+            if (item.haveAccount == true) { 
+                <input type="checkbox" class="flat-red" disabled checked/>
+            }
+            }         
+        </td>
+        <td id="OutletName-@Html.DisplayFor(modelItem => item.id)">
+            
+        </td>
+        <td id="RoleName-@Html.DisplayFor(modelItem => item.id)">
+
+        </td>
+        <td align="right" class="roleshow">
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.id })*@
+            <button id="editEM" data-id="@Html.DisplayFor(modelItem => item.id)"
+                    class="btn-edit btn btn-flat bg-purple editEM">
+                <span class="fa fa-edit"></span> Edit
+            </button>
+
+        </td>
+        <td class="roleshow">
+            @{
+                if (item.active == true)
+                {
+                    <button class="btn-x btn btn-flat bg-maroon"
+                            data-toggle="tooltip" title="Non Aktifkan?"
+                            data-id="@Html.DisplayFor(modelItem => item.id)">
+                            
+                        <span class="fa fa-remove"></span>
+                    </button>
+                }
+                else
+                {
+                    <button class="btn-sc btn bg-dark"
+                            data-toggle="tooltip" title="Aktifkan?"
+                            data-id="@Html.DisplayFor(modelItem => item.id)">
+                        <i class="fa fa-check"></i>
+                    </button>
+                }
+}
+        </td>
+
+    </tr>
+    <script>
+    $(document).ready(function () {
+        var idEm = @Html.DisplayFor(modelItem => item.id);
+        //alert(idEm);
+        $.ajax({
+            url: '@Url.Action("AmbilOutlet","Employee")',
+            data : {id : idEm},
+            type: 'get',
+            success: function (result) {
+                $("#OutletName-"+idEm).append(result);
+            }
+        });
+
+        if ('@Session["RoleID"]' == "1") {
+            //alert("woy");
+            $(".roleshow").show();
+        }
+        else {
+            $(".roleshow").hide();
+        }
+    });
+
+    $(document).ready(function () {
+        var idEm = @Html.DisplayFor(modelItem => item.id);
+        //alert(idEm);
+        $.ajax({
+            url: '@Url.Action("AmbilRole","Employee")',
+            data : {id : idEm},
+            type: 'get',
+            success: function (result) {
+                $("#RoleName-"+idEm).append(result);
+            }
+        });
+    });
+
+
+    </script>
+}
+
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Red color scheme for iCheck
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+            checkboxClass: 'icheckbox_minimal-red',
+            radioClass: 'iradio_minimal-red'
+        });
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        });
+
+    });
+
+
+
+    $(".editEM").click(function () {
+        var idEm = $(this).attr("data-id");
+        //alert(idEm);
+        $.ajax({
+            url: '@Url.Action("Edit","Employee")',
+            data :{id:idEm},
+            Type: 'get',
+            success: function (result) {
+                $(".masuk").html(result);
+                $("#ModalEdit").modal("show");
+            }
+        });
+    });
+
+    $(".btn-sc").click(function () {
+        var idEm = $(this).attr("data-id");
+        //alert(idEm);
+        $.ajax({
+            url: '@Url.Action("Aktifkan","Employee")',
+            data :{id:idEm},
+            Type: 'get',
+            success: function (result) {
+
+                $(".aktifkan").html(result);
+                $("#ModalAktifkan").modal("show");
+            }
+        });
+    });
+
+    $(".btn-x").click(function () {
+        var idEm = $(this).attr("data-id");
+        //alert(idEm);
+        $.ajax({
+            url: '@Url.Action("NonAct","Employee")',
+            data :{id:idEm},
+            Type: 'get',
+            success: function (result) {
+
+                $(".nonact").html(result);
+                $("#ModalNonAct").modal("show");
+            }
+        });
+    });
+</script>
+

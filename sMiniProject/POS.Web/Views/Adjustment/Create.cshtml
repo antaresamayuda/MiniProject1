@@ -1,0 +1,146 @@
+﻿@{
+    ViewBag.Title = "Create Adjustment";
+}
+
+@model POS.Model.TrxAdjustmentViewModel
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-group">
+        <h6><b>CREATE NEW ADJUSTMENT : <u>Outlet @Session["OutletID"]</u></b></h6>
+        <hr />
+       
+        <b>Notes</b>
+        <div class="form-group">                      
+                <input type="text" value="@Session["OutletID"]" name="outletId" hidden/>  
+                @Html.TextAreaFor(model => model.notes, new { cols = 75, htmlAttributes = new { placeholder = "Notes..." } })
+                @Html.ValidationMessageFor(model => model.notes, "", new { @class = "text-danger" })               
+        </div>
+
+        <br />
+        <h6><b>ADJUSTMENT STOCK : </b></h6>
+        <hr />
+        <div class="form-group" >
+        
+            <table class="table table-hover">
+                <thead>
+                    <tr style="background-color:whitesmoke">
+                        <th></th>
+                        <th>Item</th>
+                        <th>In Stock</th>
+                        <th>Adjust. Qty.</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="isi-data" class="text-center">
+
+                </tbody>
+            </table>
+        
+        </div>
+        <button type="button" onclick="undisableBtn()" id="btn-addItem" class="btn btn-primary btn-block btn-md" style="align-items:center" onclick="">Add Item</button>
+                <br />                
+            <div style="float:right">
+                <button type="button" class="btn btn-primary btn-md" data-dismiss="modal">Cancel</button>
+                <button type="submit" id="btn-save" class="btn btn-primary btn-md">Save & Submit</button>
+            </div>
+
+    </div>
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+
+<!--Script pop up Add Item Adjust dengan javascript-->
+
+<div id="modal-form2" class="modal modal2 fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h5 class="modal-title "><b>ADD ITEM</b></h5>
+            </div>
+            <div class="modal-body modal-body2">
+                <br /><br />
+            </div>
+
+            <div class="modal-footer2">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(".modal-body").on("click", "#btn-addItem", function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '@Url.Action("AddItemAdjust", "Item")',
+            type: 'get',
+            success: function (result) {
+                $(".modal-body2").html(result);
+                $("#modal-form2").modal("show");
+            }
+        });
+    });
+</script>
+
+<script>
+
+    //$(document).ready(function(){
+    //    e.preventDefault();
+        
+        var rowCount = $('#isi-data tr').length;
+        if (rowCount < 1) {
+            //alert("Silahkan Masukan Item");
+            //document.getElementById("btn-save").disabled=true;
+            $(document).ready(function () {
+                
+                function undisableBtn() {
+                    document.getElementById("btn-save").disabled = true;
+                }
+            });
+        }
+        else
+        {
+            
+            //document.getElementById("btn-save").disabled=false;
+            $(document).ready(function () {
+                
+                function disableBtn() {
+                    document.getElementById("btn-save").disabled = true;
+                }
+
+            });
+        }
+        
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(':input[type="submit"]').prop('disabled', true);
+        $('input[type="text"]').keyup(function () {
+            if ($(this).val() != '') {
+                $(':input[type="submit"]').prop('disabled', false);
+            }
+        });
+    });
+</script>
+<script>
+    
+
+    
+</script>
+
+<script>
+    $(".modal-body").on("click", ".btn-cancel", function (e) {
+        e.preventDefault();
+        $(".modal").modal("hide");
+
+    });
+</script>
+

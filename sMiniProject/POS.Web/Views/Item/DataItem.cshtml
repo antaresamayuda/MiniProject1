@@ -1,0 +1,104 @@
+﻿@model IEnumerable<POS.ViewModel.MstAllItemVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Unit Price
+        </th>
+        <th>
+            In Stock
+        </th>
+        <th>
+            Stock Alert
+        </th>
+        <th class="roleshow"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nameItem)-
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td id="ctg-@Html.DisplayFor(modelItem => item.id)">
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.instock)
+            </td>
+            <td>                
+                @{ 
+                    if (item.instock < item.alertstock) {<text>Low</text> }
+                    else { 
+                    <text>Ready</text>
+                    }
+                }
+            </td>
+            <td align="center" class="roleshow">
+                <button id="editEM" data-id="@Html.DisplayFor(modelItem => item.IDItem)"
+                        class="btn-edit-item btn btn-flat bg-purple editEM">
+                    <span class="fa fa-edit"></span> Edit
+                </button>
+            </td>
+        </tr>
+        <script>
+            $(document).ready(function () {
+                var idEm = @Html.DisplayFor(modelItem => item.IDItem);
+                var idI = @Html.DisplayFor(modelItem => item.id);
+                var stt ;
+                var i;
+                //alert(idEm);
+                $.ajax({
+                    url: '@Url.Action("DataCategory","Item")',
+                    data : {id : idEm},
+                    type: 'get',
+                    success: function (res) {
+                        $("#ctg-"+idI).append(res);
+                    }
+                });
+            });
+
+        </script>
+    }
+
+</table>
+<script>
+    $(".btn-edit-item").click(function () {
+        var id = $(this).attr("data-id");
+        //alert(id);
+        //$("#ModalEditItem").modal("show");
+        $.ajax({
+            url: '@Url.Action("Edit","Item")',
+            data: {id:id},
+            Type: 'get',
+            success: function (result) {
+                $(".editItem").html(result);
+                $("#ModalEditItem").modal("show");
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        if ('@Session["RoleID"]' == "1") {
+            $(".roleshow").show();
+        }
+        else {
+            $(".roleshow").hide();
+        }
+    });
+</script>
+

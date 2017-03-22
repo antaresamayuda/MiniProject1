@@ -1,0 +1,9 @@
+﻿@model IEnumerable<POS.ViewModel.MstAllItemVM>
+
+@foreach (var item in Model)
+{
+    if (item.instock <= item.alertstock) { Console.Write("Low"); } else { Console.Write("Ready"); } 
+    @Html.DisplayFor(modelItem => item.alertstock)
+   
+}
+

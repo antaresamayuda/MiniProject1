@@ -1,0 +1,61 @@
+﻿@model POS.ViewModel.MstUserViewModel
+
+@{
+    ViewBag.Title = "Login";
+    ViewBag.sesi = "Login";
+    
+}
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "FormLogin" }))
+{
+    <fieldset>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <h5 class="center">Masukan Username Dan Password</h5>
+        <div class="form-group has-feedback">
+            @Html.TextBoxFor(a => a.username, new { @class = "form-control", placeholder = "Username", onfocus = "true" })            
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+        @Html.ValidationMessageFor(a => a.username, "", new { @class = "text-danger" })
+        <div class="form-group has-feedback">
+            @Html.PasswordFor(a => a.password, new { @class = "form-control", placeholder = "Password" })
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="checkbox icheck">
+                    <label>
+                    </label>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <button onclick="return(validate());" id="btn-login" type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            </div>
+        </div>
+
+    </fieldset>
+}
+
+<a href="#" id="btn-forgot">I forgot my password</a><br>
+
+<div id="ModalConfirm" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-purple-active">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Forgot Password</h4>
+            </div>
+            <div class="modal-body confirmemail padding20">
+
+            </div>
+        </div>
+    </div>
+</div>
+

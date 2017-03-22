@@ -1,0 +1,16 @@
+﻿@model IEnumerable<POS.Model.TrxAdjustmentDetailViewModel>
+
+
+@foreach (var item in Model) {
+    <tr class="text-center">
+        <td>
+            @Html.DisplayFor(modelItem => item.varName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.inStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.actualStock)
+        </td>
+    </tr>
+}

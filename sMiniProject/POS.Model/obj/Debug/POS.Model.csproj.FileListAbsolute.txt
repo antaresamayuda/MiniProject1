@@ -1,0 +1,50 @@
+D:\B102PointOfSale-master\sMiniProject\POS.Model\bin\Debug\POS.Model.dll.config
+D:\B102PointOfSale-master\sMiniProject\POS.Model\bin\Debug\POS.Model.dll
+D:\B102PointOfSale-master\sMiniProject\POS.Model\bin\Debug\POS.Model.pdb
+D:\B102PointOfSale-master\sMiniProject\POS.Model\bin\Debug\EntityFramework.dll
+D:\B102PointOfSale-master\sMiniProject\POS.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\B102PointOfSale-master\sMiniProject\POS.Model\bin\Debug\EntityFramework.xml
+D:\B102PointOfSale-master\sMiniProject\POS.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\B102PointOfSale-master\sMiniProject\POS.Model\obj\Debug\POS.Model.dll
+D:\B102PointOfSale-master\sMiniProject\POS.Model\obj\Debug\POS.Model.pdb
+D:\B102PointOfSale-master\sMiniProject\POS.Model\obj\Debug\POS.Model.csprojResolveAssemblyReference.cache
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Model\bin\Debug\POS.Model.dll.config
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Model\bin\Debug\POS.Model.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Model\bin\Debug\POS.Model.pdb
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Model\bin\Debug\EntityFramework.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Model\bin\Debug\EntityFramework.xml
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Model\obj\Debug\POS.Model.csprojResolveAssemblyReference.cache
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Model\obj\Debug\POS.Model.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Model\obj\Debug\POS.Model.pdb
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\POS.Model.dll.config
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\POS.Model.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\POS.Model.pdb
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\EntityFramework.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\EntityFramework.xml
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\obj\Debug\POS.Model.csprojResolveAssemblyReference.cache
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\obj\Debug\POS.Model.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\obj\Debug\POS.Model.pdb
+D:\MiniProject\sMiniProject Lengkap\backup 18.05\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\POS.Model.dll.config
+D:\MiniProject\sMiniProject Lengkap\backup 18.05\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\POS.Model.dll
+D:\MiniProject\sMiniProject Lengkap\backup 18.05\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\POS.Model.pdb
+D:\MiniProject\sMiniProject Lengkap\backup 18.05\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\EntityFramework.dll
+D:\MiniProject\sMiniProject Lengkap\backup 18.05\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\MiniProject\sMiniProject Lengkap\backup 18.05\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\EntityFramework.xml
+D:\MiniProject\sMiniProject Lengkap\backup 18.05\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\MiniProject\sMiniProject Lengkap\backup 18.05\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\obj\Debug\POS.Model.csprojResolveAssemblyReference.cache
+D:\MiniProject\sMiniProject Lengkap\backup 18.05\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\obj\Debug\POS.Model.dll
+D:\MiniProject\sMiniProject Lengkap\backup 18.05\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Model\obj\Debug\POS.Model.pdb
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\bin\Debug\POS.Model.dll.config
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\bin\Debug\POS.Model.dll
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\bin\Debug\POS.Model.pdb
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\bin\Debug\EntityFramework.dll
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\bin\Debug\EntityFramework.xml
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\obj\Debug\POS.Model.csprojResolveAssemblyReference.cache
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\obj\Debug\POS.Model.dll
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Model\obj\Debug\POS.Model.pdb

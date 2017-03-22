@@ -1,0 +1,228 @@
+﻿@model POS.Model.TrxAdjustmentViewModel
+
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<br />
+
+<div class="panel-group" id="details">
+    <div class="panel-heading">
+        <div class="panel-title">
+
+            <div class="form-horizontal">
+                <div style="float:left"><b>Adjustment detail</b></div>
+                <div class="dropdown" style="float:right" id="not-print">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        <b>More</b>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        @{
+                            long statID = Model.statusId;
+                            string sesiUser;
+                            
+                            
+                            if (statID == 2)
+                            {
+                                <li><a href="#" onclick="printContent('details');return false" data-id="@Model.id">Print</a></li>
+                            }
+                            else if (statID == 3)
+                            {
+                                <li><a href="#" onclick="printContent('details');return false" data-id="@Model.id">Print</a></li>
+                            }
+                            else if (statID == 1)
+                            {                                                         
+                                {
+                                   sesiUser = Session["RoleID"].ToString();
+                                }
+                                if (sesiUser=="1")
+                                {                            
+                                <li><a href="#" id="btn-approve" data-id="@Model.id">Approve</a></li>
+                                                           <li><a href="#" id="btn-reject" data-id="@Model.id">Reject</a></li>
+                                    
+                                <li><a href="#" onclick="printContent('details');return false" data-id="@Model.id">Print</a></li>
+                                }
+                                else if(sesiUser=="2")
+                                {
+                                <li><a href="#" onclick="printContent('details');return false" data-id="@Model.id">Print</a></li>
+                                }
+                            }                                                       
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <table width="100%" align="center">
+                <tr>
+                    <td>Created By : &nbsp; @Html.DisplayFor(model => model.CreatedBy)</td>
+                </tr>
+                <tr>
+                    <td>Adjustment Status : &nbsp; @Html.DisplayFor(model => model.StatusName)</td>
+                </tr>
+                <tr>
+                    <td>Notes : </td>
+                </tr>
+                <tr>
+                    <td valign="top" height="50" style="background-color:lightgray">-&nbsp; @Html.DisplayFor(model => model.notes)</td>
+
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <br />
+    <div class="panel-heading">
+        <h5 class="panel-title">
+            <b>Status History</b>
+        </h5>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <table>
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody id="listhistory">
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <br />
+    <div class="panel-heading">
+        <h5 class="panel-title">
+            <b>Adjustment Items</b>
+        </h5>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <table width="100%" border="1">
+                <thead>
+                    <tr style="background-color:lightgray">
+                        <td align="center"><b>Item</b></td>
+                        <td align="center"><b>In Stock</b></td>
+                        <td align="center"><b>Adjustment Qty.</b></td>
+                    </tr>
+                </thead>
+                <tbody id="listdetail">
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-primary btn-sm col-sm-2" style="float:right" data-dismiss="modal"><b>Done</b></button>
+
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+
+
+@*<script>
+    $(".modal-body3").on("click", ".btn-done", function (e) {
+        e.preventDefault();
+        $("#modal-form3").modal("hide");
+    });
+
+</script>*@
+
+<div id="modal-form4" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body4">
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(".modal-body3").on("click", "#btn-approve", function (e) {
+        e.preventDefault();
+        var varId = $(this).attr("data-id");
+        var varStatus = $(this).attr("data-status");
+        //alert(varId + varStatus);
+        $.ajax({
+            url: '@Url.Action("Approve", "Adjustment")',
+            data: { id: varId },
+            type: 'get',
+            success: function (result) {
+                //$(".modal-body4").html(result);
+                $("#modal-form4").modal("hide");
+                window.location.reload("index");
+            }
+        });
+
+    });
+</script>
+
+<script>
+    $(".modal-body3").on("click", "#btn-reject", function (e) {
+        e.preventDefault();
+        var varId = $(this).attr("data-id");
+        var varStatus = $(this).attr("data-status");
+        //alert(varId + varStatus);
+        $.ajax({
+            url: '@Url.Action("Reject", "Adjustment")',
+            data: { id: varId },
+            type: 'get',
+            success: function (result) {
+                //$(".modal-body4").html(result);
+                $("#modal-form4").modal("hide");
+                window.location.reload("index");
+            }
+        });
+        
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var varId = @Html.DisplayFor(model => model.id);
+        $.ajax({
+            url: '@Url.Action("List","AdjustmentDetail")',
+            data:{id:varId},
+            type: 'get',
+            success: function (result) {
+                $("#listdetail").append(result);
+            }
+        })
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        var varId = @Html.DisplayFor(model => model.id);
+        $.ajax({
+            url: '@Url.Action("ListHistory","AdjustmentHistory")',
+            data:{id:varId},
+            type: 'get',
+            success: function (result) {
+                $("#listhistory").append(result);
+            }
+        })
+    });
+</script>

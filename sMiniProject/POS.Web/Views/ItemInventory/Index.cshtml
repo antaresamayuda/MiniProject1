@@ -1,0 +1,105 @@
+﻿@model IEnumerable<POS.ViewModel.MstItemInventoryViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.variantId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.outletId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.beginning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.purchaseQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salesOrderQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.transferStockQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adjustmentQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endingQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.alertAtQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modifiedOn)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.variantId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.outletId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.beginning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.purchaseQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salesOrderQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.transferStockQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adjustmentQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endingQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alertAtQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createdBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createdOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modifiedOn)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

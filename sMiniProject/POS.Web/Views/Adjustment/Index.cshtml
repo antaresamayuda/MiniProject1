@@ -1,0 +1,255 @@
+﻿@{
+    ViewBag.Title = "Data Adjustment";
+}
+
+<script>
+    function printContent(el) {
+        var restorepage = document.body.innerHTML;
+        var printcontent = document.getElementById(el).innerHTML;
+        document.body.innerHTML = printcontent;
+        window.print();
+        document.body.innerHTML = restorepage;
+    }
+</script>
+
+<br /><br />
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h5 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <b>ADJUSTMENT</b>
+                </a>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="panel-default collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body" >
+
+                <table class="table table-striped">
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <div class="col-xs-5 date">
+                                    <div class="input-group input-append date" id="datePicker">
+                                        <input type="text" placeholder="01/01/2017" class=" form-control" name="date" size="10" style="color:red" id="dt1"/>
+                                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-5 date">
+                                    <div class="input-group  input-append2 date" id="datePicker2">
+                                        <input type="text" placeholder="31/01/2017" class=" form-control" name="date2" size="10" style="color:red" id="dt2" />
+                                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </td>
+                        <td align="right">
+                            <a href="javascript:window.print()" class="btn btn-primary btn-sm col-md-3" role="button">Export</a>
+                            <button type="button" id="btn-create" class="btn btn-primary btn-sm col-md-3 col-md-push-2">Create</button>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            </div>
+
+        <div id="collapseOne" class="panel-default collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body" >
+
+                <table class="table table-hover">
+                    <tr style="background-color:whitesmoke">
+                        <th style="text-align:center">Adjustment Date</th>
+                        <th style="text-align:center">Notes</th>
+                        @*<th style="text-align:center">Items</th>
+                        <th style="text-align:center">Adjust. Qty.</th>*@
+                        <th style="text-align:center">Status</th>
+                        <th style="text-align:center">#</th>
+                    </tr>
+                    @model IEnumerable<POS.Model.TrxAdjustmentViewModel>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="text-center">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedOn)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.notes)
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.AName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.C)
+                            </td>*@
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StatusName)
+                            </td>
+                            <td>
+                                <button type="button" onclick="disableBtn()" class="btn btn-view btn-link btn-xs" data-id="@item.id" style="color:green">View</button>
+
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+                <br />
+            </div>
+        </div>
+    </div>
+</div>    
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+
+
+<!--Script pop up Create Adjust dengan javascript-->
+
+<div id="modal-form" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header ">               
+                <h5 class="modal-title "><b>ADJUSTMENT</b></h5>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script>
+    
+
+    $("#btn-create").click(function () {
+        $("#modal-form").modal({ backdrop: false });
+        $.ajax({
+            url: '@Url.Action("Create","Adjustment")',
+            type: 'get',
+            success: function (result) {
+                $(".modal-body").html(result);
+                $("#modal-form").modal("show");
+            }
+        });
+    });
+</script>
+<script>
+    $("#export").click(function () {
+        $("#modal-form").modal({ backdrop: false });
+        $.ajax({
+            url: '@Url.Action("Create","Adjustment")',
+            type: 'get',
+            success: function (result) {
+                $(".modal-body").html(result);
+                $("#modal-form").modal("show");
+            }
+        });
+    });
+</script>
+
+<script>
+    $(".btn-view").click(function () {
+        $("#modal-form3").modal({ backdrop: false });
+
+        var varId = $(this).attr("data-id");
+        $.ajax({
+            url: '@Url.Action("Details","Adjustment")',
+            data:{id:varId},
+            type: 'get',
+            success: function (result) {
+                $(".modal-body3").html(result);
+                $("#modal-form3").modal("show");
+            }
+        });
+    });
+</script>
+
+<script>
+    $('#datePicker')
+       .datepicker({
+           format: 'mm/dd/yyyy'
+       })
+       .on('changeDate', function (e) {
+           // Revalidate the date field
+           // $('#eventForm').formValidation('revalidateField', 'date');
+           var tglAwal = $("#dt1").val();
+
+           alert(tglAwal);
+       });
+
+
+    $('#datePicker2')
+   .datepicker({
+       format: 'mm/dd/yyyy'
+   })
+   .on('changeDate', function (e) {
+       // Revalidate the date field
+       // $('#eventForm').formValidation('revalidateField', 'date');
+       var tglAkhir = $("#dt2").val();
+       @*$.ajax({
+           url:'@Url.Action("Index", "Adjustment")',
+           data: {id1: tglAwal,id2:tglAkhir },
+           type: 'get',
+           success: function (result) {
+               window.location.reload();
+           }
+
+       });*@
+       alert(tglAkhir);
+   });
+</script>
+
+
+
+
+
+
+<!--Script pop up view dengan javascript-->
+
+<div id="modal-form3" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body3">
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

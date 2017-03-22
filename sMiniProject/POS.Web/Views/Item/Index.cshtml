@@ -1,0 +1,303 @@
+﻿@model IEnumerable<POS.ViewModel.MstItemViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="box box-warning">
+    <div class="box-header with-border">
+        <h3 class="box-title">@ViewBag.Title</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="form-horizontal">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group has-feedback">
+                        <input id="search" type="text" class="form-control" placeholder="Search.." />
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-2 pull-right roleshow">
+                    <button type="button" class="btn btn-primary btn-flat btn-addctg"><span class="fa fa-plus"></span> Add Item</button>
+                </div>
+            </div>
+            <div class="col-md-12 datacategory">
+                <x id="isi-data">
+
+                </x>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Item</h4>
+            </div>
+            <div class="modal-body addctg padding20">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="ModalEditItem" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-purple">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Update Item</h4>
+            </div>
+            <div class="modal-body editItem padding20">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ModalEditItemVariant" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-green">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Item Variant</h4>
+            </div>
+            <div class="modal-body editItemVariant padding20">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="ModalAdd" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Add Variant</h4>
+            </div>
+            <div class="modal-body addvariant padding20">
+                <div class="row">
+                    <form name="FormAddVariant">
+                        <div class="form-horizontal">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <div class="form-group" id="fl1">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Variant Name" class="form-control namaVariant" name="namaVariant" id="field1" />
+                                            <div hidden>
+                                                <input type="text" placeholder="alias" class="form-control namaVr" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4" >
+                                    <div class="form-group" id="fl2">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Unit Price" class="form-control price" id="field2" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4" >
+                                    <div class="form-group" id="fl3">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="SKU" class="form-control sku" id="field3" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <h3>Set Beginning Stock</h3>
+                            </div>
+                            <div class="col-md-12" >
+                                <div class="col-md-6">
+                                    <div class="form-group" id="fl4">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Beginning Stock" class="form-control stokAwal" id="field4" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group" id="fl5">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Alert at" class="form-control stokAlert" id="field5" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+            <div class="modal-footer bg-gray-light">
+                <button type="button" class="btn btn-flat btn-primary btn-addVariant vld" ><span class="fa fa-download"></span></button>
+                <button type="button" class="btn btn-flat btn-primary btn-editVariant vld" ><span class="fa fa-upload"></span></button>
+
+                <button type="button" class="btn btn-flat bg-purple btn-addVariantE vld" ><span class="fa fa-download"></span></button>
+                <button type="button" class="btn btn-flat bg-purple btn-editVariantE vld" ><span class="fa fa-upload"></span></button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    //validasi form
+
+    $("#field2").keyup(function () {
+        //var theEvent = evt || window.event;
+        //var key = theEvent.keyCode || theEvent.which;
+        //key = String.fromCharCode(key);
+        //var regex = /[0-9]|\./;
+        //if (!regex.test(key)) {
+        //    theEvent.returnValue = false;
+        //    if (theEvent.preventDefault) theEvent.preventDefault();
+        //    if ($(this).val() == "") { $("#f2").addClass("has-error"); }
+        //}
+        //else { $("#f2").removeClass("has-error"); }
+        var x = $(this).val();
+        var regex = /^[a-zA-Z]+$/;
+        if (x.match(regex)) {
+            alert("Must input numbers");
+            return false;
+        }
+    });
+
+
+
+    $(document).ready(function () {
+        if ('@Session["RoleID"]' == "1") {
+            $(".roleshow").show();
+        }
+        else {
+            $(".roleshow").hide();
+        }
+    });
+
+
+    $("#search").keyup(function () {
+        SearchItems();
+    });
+
+    function SearchItems() {
+        var key = $("#search").val();
+        $("#isi-data").remove();
+        $(".datacategory").append('<x id="isi-data"></x>');
+        //var key = "";
+        $.ajax({
+            url: '@Url.Action("Search", "Item")',
+            data: { searchText: key },
+            type: 'get',
+            success: function (result) {
+                $("#isi-data").append(result);
+            }
+        });
+    }
+
+    $(".namaVariant").keyup(function () {
+        $(".namaVr").val($(this).val());
+    });
+
+    function clearinput() {
+        $(".namaVariant").val("");
+        $(".namaVr").val("");
+        $(".price").val("");
+        $(".sku").val("");
+        $(".stokAwal").val("");
+        $(".stokAlert").val("");
+    }
+
+    function validates() {
+
+        if (document.FormAddVariant.namaVariant.value == "") {
+            alert("Please provide Item Name!");
+            document.FormAddVariant.namaVariant.focus();
+            return false;
+
+        } else { AddVariant(); }
+    }
+
+
+    $(".btn-addctg").click(function () {
+        //alert("asd");
+        //$("#myModal").modal("show");
+        $.ajax({
+            url: '@Url.Action("Create","Item")',
+            Type: 'get',
+            success: function (result) {
+                $(".addctg").html(result);
+                $("#myModal").modal("show");
+            }
+
+        });
+    });
+
+    $(".addctg").on("click", ".btn-variant", function () {
+        $("#ModalAdd").modal("show");
+        $(".btn-addVariant").show();
+        $(".btn-editVariant").hide();
+        $(".btn-addVariantE").hide();
+        $(".btn-editVariantE").hide();
+    });
+
+    $(".editItem").on("click", ".btn-variantEdit", function () {
+        $("#ModalAdd").modal("show");
+        $(".btn-addVariant").hide();
+        $(".btn-editVariant").hide();
+        $(".btn-addVariantE").show();
+        $(".btn-editVariantE").hide();
+    });
+
+    function reIndexTable() {
+        var rowCount = $('.datavariant tr').length;
+        if (rowCount > 0) {
+            var idx = 0;
+            $.each($(".datavariant").find("tr"), function (i, val) {
+                var varNama = $(this).find(":input[name*='.variantName']");
+                $(varNama).attr("name", varNama.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                var varPrice = $(this).find(":input[name*='.price']");
+                $(varPrice).attr("name", varPrice.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                var varSKU = $(this).find(":input[name*='.sku']");
+                $(varSKU).attr("name", varSKU.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                var varBeginning = $(this).find(":input[name*='.beginning']");
+                $(varBeginning).attr("name", varBeginning.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                var varAlert = $(this).find(":input[name*='.alertAtQty']");
+                $(varAlert).attr("name", varAlert.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                idx += 1;
+            });
+        }
+    }
+
+
+
+</script>

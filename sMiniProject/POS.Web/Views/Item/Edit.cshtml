@@ -1,0 +1,286 @@
+﻿@model POS.ViewModel.MstItemViewModel
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-3">
+            <img src="" width="100%" height="150px"/>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.HiddenFor(model => model.id)
+                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", placeholder = "Item Name" } })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @*@Html.DropDownListFor(model => model.categoryId, (IEnumerable<SelectListItem>)ViewBag.ListProv, "Pilih Category", new { @class = "form-control" })*@
+                    
+                    @Html.DropDownListFor(model => model.categoryId,
+                        new SelectList(String.Empty, "Value", "Text"),
+                        "Pilih Category", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.categoryId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <p>&nbsp;</p>
+        <div class="col-md-12">
+            <button type="button" class="btn bg-purple btn-flat pull-right btn-variantEdit"><span class="fa fa-plus-circle"></span>  Add Variant</button>
+            <span></span>
+            
+        </div>    
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <div class="col-md-12">
+            <div style="padding:3px;overflow:auto;width:auto;height:200px; border-radius:7px; solid grey">
+                <div class="col-md-12">
+                    <h4 class="text-center">Item Variant Saat Ini  
+                        <a href="#" id="sampah" class="text-black pull-right" data-toggle="tooltip" title="Delete" data-id="@Html.DisplayFor(model => model.id)">
+                            <span class="fa fa-trash-o"></span>
+                        </a>
+                    </h4>                
+                </div>                
+                <div class="col-md-12">
+                    
+                    <table class="table table-bordered table-responsive table-striped text-center">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Variant Name</th>
+                                <th>Unit Price</th>
+                                <th>SKU</th>
+                                <th>Stock</th>
+                                <th>Alert</th>
+                                <th colspan="2">Act</th>
+                            </tr>
+                        </thead>
+                        <tbody class="dataVr"></tbody>
+                    </table>
+                </div>
+                <p>&nbsp;</p>
+                <h4 class="text-center">Item Variant Update</h4>
+                <div class="col-md-12">
+                    <table class="table table-bordered table-responsive table-striped text-center">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Variant Name</th>
+                                <th>Unit Price</th>
+                                <th>SKU</th>
+                                <th>Stock</th>
+                                <th>Alert</th>
+                                <th colspan="2">Act</th>
+                            </tr>
+                        </thead>
+                        <tbody class="datavariantEdit">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+
+        <p>&nbsp;</p>
+        <div class="form-group">
+            <div class="col-md-4">
+                <button type="button" class="btn bg-gray  btn-flat btn-block"><span class="fa fa-arrow-circle-left"></span> Back</button>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn bg-gray  btn-flat btn-block"><span class="fa fa-eraser"></span> Cancel</button>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn bg-gray  btn-flat btn-block"><span class="fa fa-save"></span> Save</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(".btn-edit").click(function () {
+        var id = $(this).attr("data-id");
+        alert(id);
+    });
+
+    $("#sampah").click(function(){
+        alert("jump");
+        var id = $(this).attr("data-id");
+        $.ajax({
+            url: '@Url.Action("DelVr", "ItemVariant")',
+            data: { id: id },
+            type: 'get',
+            success: function (result) {
+                
+            }
+        });
+        window.location.reload();
+    });
+
+
+    $(document).ready(function () {
+        var id = @Html.DisplayFor(model => model.id);
+        //alert(id);
+        $.ajax({
+            url: '@Url.Action("GetDataVariant", "ItemVariant")',
+            data: { id: id },
+            type: 'get',
+            success: function (result) {
+                $(".dataVr").append(result);
+            }
+        });
+
+        var idctg = @Html.DisplayFor(model => model.categoryId);
+        //alert(idctg);
+        $.ajax({
+            url: '@Url.Action("GetCategoryID", "Ajax")',
+            data: { id: idctg },
+            dataType: 'JSON',
+            type: 'get',
+            success: function (item) {
+                $("#categoryId").append('<option value="' + item.id + '">' + item.name + '</option>');
+            }
+        })
+    });
+
+    $("#ModalAdd").on("click",".btn-addVariantE",function (e) {
+        e.preventDefault();
+        //alert("masuk ga ya");
+        var xNama = $(this).parent().parent().find(".namaVariant").val();
+        var xPrice = $(this).parent().parent().find(".price").val();
+        var xSKU = $(this).parent().parent().find(".sku").val();
+        var xStokAwal = $(this).parent().parent().find(".stokAwal").val();
+        var xStokAlert = $(this).parent().parent().find(".stokAlert").val();
+
+        var cetak = '<tr class="text-center" id="' + xNama + '">' +
+                    '<td>' + xNama +
+                    '<input   name="DataVariantE[0].variantName" value="' + xNama + '" />' +
+                    '</td>' +
+                    '<td>' + xPrice +
+                    '<input  name="DataVariantE[0].price" value="' + xPrice + '" />' +
+                    '</td>' +
+                    '<td>' + xSKU +
+                    '<input  name="DataVariantE[0].sku" value="' + xSKU + '" />' +
+                    '</td>' +
+                    '<td>' + xStokAwal +
+                    '<input   name="DataVariantE[0].beginning" value="' + xStokAwal + '" />' +
+                    '</td>' +
+                    '<td>' + xStokAlert +
+                    '<input   name="DataVariantE[0].alertAtQty" value="' + xStokAlert + '" />' +
+                    '</td>' +
+                    '<td>' +
+                    '<button type="button" class="btn btn-primary btn-xs btn-edit" ' +
+                            'data-name="' + xNama + '"' +
+                            'data-price="' + xPrice + '"' +
+                            'data-sku="' + xSKU + '"' +
+                            'data-awal="' + xStokAwal + '"' +
+                            'data-alert="' + xStokAlert + '"> Edit ' +
+                    '</button>' +
+                    '</td>' +
+                    '<td><button type="button" class="btn btn-danger btn-xs btn-remove-item"> X </button></td>' +
+                    '</tr>';
+        clearinput();
+        $(".datavariantEdit").append(cetak);
+        $("#ModalAdd").modal("hide");
+        reIndexTableE();
+
+    });
+
+
+
+    $(".editItem").on("click", ".btn-edit", function ambil() {
+        var nama = $(this).attr("data-name");
+        var price = $(this).attr("data-price");
+        var sku = $(this).attr("data-sku");
+        var awal = $(this).attr("data-awal");
+        var alert = $(this).attr("data-alert");
+        $("#ModalAdd").modal("show");
+        $(".namaVariant").val(nama);
+        $(".namaVr").val(nama);
+        $(".price").val(price);
+        $(".sku").val(sku);
+        $(".stokAwal").val(awal);
+        $(".stokAlert").val(alert);
+        $(".btn-addVariant").hide();
+        $(".btn-editVariant").hide();
+        $(".btn-addVariantE").hide();
+        $(".btn-editVariantE").show();
+    });
+
+    ////Fungsi Edit : edit input and add  ke table
+
+    $(".btn-editVariantE").click(function (e) {
+        e.preventDefault();
+        //alert("masuk ga ya");
+        var xNama = $(this).parent().parent().find(".namaVariant").val();
+        var xPrice = $(this).parent().parent().find(".price").val();
+        var xSKU = $(this).parent().parent().find(".sku").val();
+        var xStokAwal = $(this).parent().parent().find(".stokAwal").val();
+        var xStokAlert = $(this).parent().parent().find(".stokAlert").val();
+        var xAlias = $(this).parent().parent().find(".namaVr").val();
+        $("#" + xAlias).remove();
+        var cetak = '<tr class="text-center" id="' + xNama + '">' +
+                    '<td>' + xNama +
+                    '<input type="hidden"  name="DataVariantE[0].variantName" value="' + xNama + '" />' +
+                    '</td>' +
+                    '<td>' + xPrice +
+                    '<input type="hidden"  name="DataVariantE[0].price" value="' + xPrice + '" />' +
+                    '</td>' +
+                    '<td>' + xSKU +
+                    '<input type="hidden"  name="DataVariantE[0].sku" value="' + xSKU + '" />' +
+                    '</td>' +
+                    '<td>' + xStokAwal +
+                    '<input type="hidden"  name="DataVariantE[0].beginning" value="' + xStokAwal + '" />' +
+                    '</td>' +
+                    '<td>' + xStokAlert +
+                    '<input type="hidden"  name="DataVariantE[0].alertAtQty" value="' + xStokAlert + '" />' +
+                    '</td>' +
+                    '<td>' +
+                    '<button type="button" class="btn btn-primary btn-xs btn-edit" ' +
+                            'data-name="' + xNama + '"' +
+                            'data-price="' + xPrice + '"' +
+                            'data-sku="' + xSKU + '"' +
+                            'data-awal="' + xStokAwal + '"' +
+                            'data-alert="' + xStokAlert + '"> Edit ' +
+                    '</button>' +
+                    '</td>' +
+                    '<td><button type="button" class="btn btn-danger btn-xs btn-remove-item"> X </button></td>' +
+                    '</tr>';
+        clearinput();
+        $(".datavariantEdit").append(cetak);
+        $("#ModalAdd").modal("hide");
+        reIndexTableE();
+
+    });
+
+    function reIndexTableE() {
+        var rowCount = $('.datavariantEdit tr').length;
+
+        if (rowCount > 0) {
+            var idx = 0;
+            $.each($(".datavariantEdit").find("tr"), function (i, val) {
+
+                var varNama = $(this).find(":input[name*='.variantName']");
+                $(varNama).attr("name", varNama.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                var varPrice = $(this).find(":input[name*='.price']");
+                $(varPrice).attr("name", varPrice.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                var varSKU = $(this).find(":input[name*='.sku']");
+                $(varSKU).attr("name", varSKU.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                var varBeginning = $(this).find(":input[name*='.beginning']");
+                $(varBeginning).attr("name", varBeginning.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                var varAlert = $(this).find(":input[name*='.alertAtQty']");
+                $(varAlert).attr("name", varAlert.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                idx += 1;
+            });
+        }
+    }
+</script>

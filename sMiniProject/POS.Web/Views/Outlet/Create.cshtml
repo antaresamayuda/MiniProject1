@@ -1,0 +1,230 @@
+﻿@model POS.ViewModel.MstOutletViewModel
+@{
+    Session["at"] = "@";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", placeholder = "Supplier Name" } })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group">
+                <h4 class="text-center">Address</h4>
+                <div class="col-md-12">
+                    @Html.TextAreaFor(model => model.address, new { htmlAttributes = new { @class = "form-control col-md-12", value = "Address" } })
+                    @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.ValidationMessageFor(model => model.provinceId, "", new { @class = "text-danger" })
+
+                    @Html.DropDownListFor(model => model.provinceId, (IEnumerable<SelectListItem>)ViewBag.ListProv, "Pilih Provinsi", new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.DropDownListFor(model => model.regionId,
+                        new SelectList(String.Empty, "Value", "Text"),
+                        "Pilih Region", new { @class = "form-control" })
+
+                    @Html.ValidationMessageFor(model => model.regionId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.DropDownListFor(model => model.districtId,
+                        new SelectList(String.Empty, "Value", "Text"),
+                        "Pilih District", new { @class = "form-control pull-right" })
+                    @Html.ValidationMessageFor(model => model.districtId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-4">
+            <div class="form-group" id="phones">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone", onekeypress = "tes()" } })
+                    @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group" id="emails">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "email (@)" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    </div>
+                    <div id="notif">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group" id="poskode">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.postalCode, new { htmlAttributes = new { @class = "form-control pull-right", placeholder = "Kode Pos" } })
+                    @Html.ValidationMessageFor(model => model.postalCode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-12 pull-right">
+                <div class="col-md-12 pull-right">
+                    <button type="button" class="btn btn-google  btn-flat"><span class="fa fa-remove"></span> Cancel</button>
+                    <span></span>
+                    <button type="submit" class="btn btn-primary  btn-flat pull-right"><span class="fa fa-save"></span> Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $("#provinceId").change(function () {
+        $.ajax({
+            url: '@Url.Action("GetDataProvKota","Ajax")',
+            data: { id: $(this).val() },
+            dataType: 'JSON',
+            type: 'get',
+            success: function (listitem) {
+                Reset(1);
+                $.each(listitem, function (index, item) {
+                    $("#regionId").append('<option value="' + item.id + '">' + item.name + '</option>');
+                });
+            }
+        })
+    });
+
+    $("#regionId").change(function () {
+        $.ajax({
+            url: '@Url.Action("GetDataKotaKec","Ajax")',
+            data: { id: $(this).val() },
+            dataType: 'JSON',
+            type: 'get',
+            success: function (listitem) {
+                Reset(2);
+                $.each(listitem, function (index, item) {
+                    $("#districtId").append('<option value="' + item.id + '">' + item.name + '</option>');
+                });
+            }
+        })
+    });
+
+    function Reset(data) {
+        if (data <= 1) {
+            $("#regionId").empty();
+            $("#RegionId").append('<option value="">Pilih Region</option>')
+        }
+
+        if (data <= 2) {
+            $("#districtId").empty();
+            $("#districtId").append('<option value="">Pilih District</option>')
+        }
+    }
+
+    $("#phone").keyup(function validate(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+        var regex = /[0-9]|\./;
+        if (!regex.test(key)) {
+            theEvent.returnValue = false;
+            if (theEvent.preventDefault) theEvent.preventDefault();
+            if ($(this).val() == "") { $("#phones").addClass("has-error"); }
+        }
+        else { $("#phones").removeClass("has-error"); }
+        var x = $(this).val();
+        if (x.length <= 10 || x.length >= 13)
+        { $("#phones").addClass("has-error"); }
+        else
+        {
+            $("#phones").removeClass("has-error");
+            $("#phones").addClass("has-success");
+        }
+    });
+
+    $("#postalCode").keyup(function validate(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+        var regex = /[0-9]|\./;
+        if (!regex.test(key)) {
+            theEvent.returnValue = false;
+            if (theEvent.preventDefault) theEvent.preventDefault();
+            if ($(this).val() == "") { $("#poskode").addClass("has-error"); }
+        }
+        else { $("#poskode").removeClass("has-error"); }
+        var x = $(this).val();
+        if (x.length != 5)
+        { $("#poskode").addClass("has-error"); }
+        else
+        {
+            $("#poskode").removeClass("has-error");
+            $("#poskode").addClass("has-success");
+        }
+    });
+
+    $("#email").keyup(function () {
+        var x = $(this).val();
+        var s = '@Session["at"]';
+        var atpos = x.indexOf(s);
+        var dotpos = x.lastIndexOf(".");
+        if (atpos < 1 || dotpos < atpos + 1 || dotpos + 1 >= x.length) {
+            $("#emails").addClass("has-error")
+        }
+        else {
+            $("#emails").removeClass("has-error");
+            $("#emails").addClass("has-success");
+
+        }
+    });
+
+    $("#email").mousemove(function () {
+        var x = $(this).val();
+        var s = '@Session["at"]';
+        var atpos = x.indexOf(s);
+        var dotpos = x.lastIndexOf(".");
+        if (atpos < 1 || dotpos < atpos + 1 || dotpos + 1 >= x.length) {
+            $("#emails").addClass("has-error")
+        }
+        else {
+            $("#emails").removeClass("has-error");
+            $("#emails").addClass("has-success");
+
+        }
+    });
+</script>

@@ -1,0 +1,239 @@
+﻿@model POS.ViewModel.MstItemViewModel
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-3">
+            <img src="" width="100%" height="150px"/>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", placeholder = "Item Name" } })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.DropDownListFor(model => model.categoryId, (IEnumerable<SelectListItem>)ViewBag.ListProv, "Pilih Category", new { @class = "form-control" })
+                
+                    @Html.ValidationMessageFor(model => model.categoryId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <p>&nbsp;</p>
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary  btn-flat pull-right btn-variant"><span class="fa fa-plus-circle"></span>  Add Variant</button>
+        </div>    
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <div class="col-md-12">
+            <table class="table table-bordered table-responsive table-striped text-center">
+                <thead class="text-center">
+                    <tr>
+                        <th>Variant Name</th>
+                        <th>Unit Price</th>
+                        <th>SKU</th>
+                        <th>Stock</th>
+                        <th>Alert</th>
+                        <th colspan="2">Act</th>
+                    </tr>
+                </thead>
+                <tbody class="datavariant">
+
+                </tbody>
+            </table>
+        </div>    
+        <p>&nbsp;</p>
+        <div class="form-group">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary  btn-flat btn-block"><span class="fa fa-arrow-circle-left"></span> Back</button>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary  btn-flat btn-block"><span class="fa fa-trash-o"></span> Cancel</button>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary  btn-flat btn-block"><span class="fa fa-save"></span> Save</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(".btn-edit").click(function () {
+        var id = $(this).attr("data-id");
+        alert(id);
+    });
+
+    
+
+    $("#ModalAdd").on("click",".btn-addVariant", function AddVariant(e) {
+        var f1 = $("#field1").val();
+        var f2 = $("#field2").val();
+        var f3 = $("#field3").val();
+        var f4 = $("#field4").val();
+        var f5 = $("#field5").val();
+        if (f1 == "") {
+            $("#fl1").addClass("has-error");
+            $("#fl2").removeClass("has-error");
+            $("#fl3").removeClass("has-error");
+            $("#fl4").removeClass("has-error");
+            $("#fl5").removeClass("has-error");
+            $("#field1").focus();
+            return false;
+        }
+
+        if (f2 == "") {
+            $("#fl1").removeClass("has-error");
+            $("#fl2").addClass("has-error");
+            $("#fl3").removeClass("has-error");
+            $("#fl4").removeClass("has-error");
+            $("#fl5").removeClass("has-error");
+            $("#field2").focus();
+            return false;
+        }
+
+        if (f3 == "") {
+            $("#fl1").removeClass("has-error");
+            $("#fl2").removeClass("has-error");
+            $("#fl3").addClass("has-error");
+            $("#fl4").removeClass("has-error");
+            $("#fl5").removeClass("has-error");
+            $("#field3").focus();
+            return false;
+        }
+
+        if (f4 == "") {
+            $("#fl1").removeClass("has-error");
+            $("#fl2").removeClass("has-error");
+            $("#fl3").removeClass("has-error");
+            $("#fl4").addClass("has-error");
+            $("#fl5").removeClass("has-error");
+            $("#field4").focus();
+            return false;
+        }
+
+        if (f5 == "") {
+            $("#fl1").removeClass("has-error");
+            $("#fl2").removeClass("has-error");
+            $("#fl3").removeClass("has-error");
+            $("#fl4").removeClass("has-error");
+            $("#fl5").addClass("has-error");
+            $("#field5").focus();
+            return false;
+        }
+        e.preventDefault();
+        //alert("masuk ga ya");        
+        var xNama = $(this).parent().parent().find(".namaVariant").val();
+        var xPrice = $(this).parent().parent().find(".price").val();
+        var xSKU = $(this).parent().parent().find(".sku").val();
+        var xStokAwal = $(this).parent().parent().find(".stokAwal").val();
+        var xStokAlert = $(this).parent().parent().find(".stokAlert").val();
+        var cetak = '<tr class="text-center" id="' + xNama + '">' +
+                    '<td>' + xNama +
+                    '<input type="hidden"  name="DataVariant[0].variantName" value="' + xNama + '" />' +
+                    '</td>' +
+                    '<td>' + xPrice +
+                    '<input type="hidden"  name="DataVariant[0].price" value="' + xPrice + '" />' +
+                    '</td>' +
+                    '<td>' + xSKU +
+                    '<input type="hidden"  name="DataVariant[0].sku" value="' + xSKU + '" />' +
+                    '</td>' +
+                    '<td>' + xStokAwal +
+                    '<input type="hidden"  name="DataVariant[0].beginning" value="' + xStokAwal + '" />' +
+                    '</td>' +
+                    '<td>' + xStokAlert +
+                    '<input type="hidden"  name="DataVariant[0].alertAtQty" value="' + xStokAlert + '" />' +
+                    '</td>' +
+                    '<td>' +
+                    '<button type="button" class="btn btn-primary btn-xs btn-edit" ' +
+                            'data-name="' + xNama + '"' +
+                            'data-price="' + xPrice + '"' +
+                            'data-sku="' + xSKU + '"' +
+                            'data-awal="' + xStokAwal + '"' +
+                            'data-alert="' + xStokAlert + '"> Edit ' +
+                    '</button>' +
+                    '</td>' +
+                    '<td><button type="button" class="btn btn-danger btn-xs btn-remove-item"> X </button></td>' +
+                    '</tr>';
+        clearinput();
+        $(".datavariant").append(cetak);
+        $("#ModalAdd").modal("hide");
+        reIndexTable();
+
+    });
+
+
+    $(".addctg").on("click", ".btn-edit", function ambil() {
+        var nama = $(this).attr("data-name");
+        var price = $(this).attr("data-price");
+        var sku = $(this).attr("data-sku");
+        var awal = $(this).attr("data-awal");
+        var alert = $(this).attr("data-alert");
+        $("#ModalAdd").modal("show");
+        $(".namaVariant").val(nama);
+        $(".namaVr").val(nama);
+        $(".price").val(price);
+        $(".sku").val(sku);
+        $(".stokAwal").val(awal);
+        $(".stokAlert").val(alert);
+        $(".btn-addVariant").hide();
+        $(".btn-editVariant").show();
+    });
+
+
+
+    ////Fungsi Edit : edit input and add  ke table 
+
+    $(".btn-editVariant").click(function (e) {
+        e.preventDefault();
+        //alert("masuk ga ya");
+        var xNama = $(this).parent().parent().find(".namaVariant").val();
+        var xPrice = $(this).parent().parent().find(".price").val();
+        var xSKU = $(this).parent().parent().find(".sku").val();
+        var xStokAwal = $(this).parent().parent().find(".stokAwal").val();
+        var xStokAlert = $(this).parent().parent().find(".stokAlert").val();
+        var xAlias = $(this).parent().parent().find(".namaVr").val();
+        $("#" + xAlias).remove();
+        var cetak = '<tr class="text-center" id="' + xNama + '">' +
+                    '<td>' + xNama +
+                    '<input type="hidden"  name="DataVariant[0].variantName" value="' + xNama + '" />' +
+                    '</td>' +
+                    '<td>' + xPrice +
+                    '<input type="hidden"  name="DataVariant[0].price" value="' + xPrice + '" />' +
+                    '</td>' +
+                    '<td>' + xSKU +
+                    '<input type="hidden"  name="DataVariant[0].sku" value="' + xSKU + '" />' +
+                    '</td>' +
+                    '<td>' + xStokAwal +
+                    '<input type="hidden"  name="DataVariant[0].beginning" value="' + xStokAwal + '" />' +
+                    '</td>' +
+                    '<td>' + xStokAlert +
+                    '<input type="hidden"  name="DataVariant[0].alertAtQty" value="' + xStokAlert + '" />' +
+                    '</td>' +
+                    '<td>' +
+                    '<button type="button" class="btn btn-primary btn-xs btn-edit" ' +
+                            'data-name="' + xNama + '"' +
+                            'data-price="' + xPrice + '"' +
+                            'data-sku="' + xSKU + '"' +
+                            'data-awal="' + xStokAwal + '"' +
+                            'data-alert="' + xStokAlert + '"> Edit ' +
+                    '</button>' +
+                    '</td>' +
+                    '<td><button type="button" class="btn btn-danger btn-xs btn-remove-item"> X </button></td>' +
+                    '</tr>';
+        clearinput();
+        $(".datavariant").append(cetak);
+        $("#ModalAdd").modal("hide");
+        reIndexTable();
+
+    });
+</script>

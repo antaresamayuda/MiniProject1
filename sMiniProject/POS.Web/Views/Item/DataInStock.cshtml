@@ -1,0 +1,7 @@
+﻿@model IEnumerable<POS.ViewModel.MstAllItemVM>
+
+@foreach (var item in Model)
+{ 
+    @Html.DisplayFor(modelItem => item.instock)
+}
+

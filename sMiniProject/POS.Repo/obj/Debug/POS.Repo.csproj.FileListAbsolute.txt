@@ -1,0 +1,72 @@
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\bin\Debug\POS.Repo.dll.config
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\bin\Debug\POS.Repo.dll
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\bin\Debug\POS.Repo.pdb
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\bin\Debug\EntityFramework.dll
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\bin\Debug\EntityFramework.SqlServer.dll
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\bin\Debug\POS.Model.dll
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\bin\Debug\POS.ViewModel.dll
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\bin\Debug\POS.Model.pdb
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\bin\Debug\POS.ViewModel.pdb
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\bin\Debug\EntityFramework.xml
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\bin\Debug\EntityFramework.SqlServer.xml
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\obj\Debug\POS.Repo.csprojResolveAssemblyReference.cache
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\obj\Debug\POS.Repo.dll
+D:\B102PointOfSale-master\sMiniProject\POS.Repo\obj\Debug\POS.Repo.pdb
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\bin\Debug\POS.Repo.dll.config
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\bin\Debug\POS.Repo.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\bin\Debug\POS.Repo.pdb
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\bin\Debug\EntityFramework.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\bin\Debug\EntityFramework.SqlServer.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\bin\Debug\POS.Model.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\bin\Debug\POS.ViewModel.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\bin\Debug\POS.Model.pdb
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\bin\Debug\POS.ViewModel.pdb
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\bin\Debug\EntityFramework.xml
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\bin\Debug\EntityFramework.SqlServer.xml
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\obj\Debug\POS.Repo.csprojResolveAssemblyReference.cache
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\obj\Debug\POS.Repo.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap - Copy\sMiniProject\POS.Repo\obj\Debug\POS.Repo.pdb
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\bin\Debug\POS.Repo.dll.config
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\bin\Debug\POS.Repo.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\bin\Debug\POS.Repo.pdb
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\bin\Debug\EntityFramework.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\bin\Debug\EntityFramework.SqlServer.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\bin\Debug\POS.Model.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\bin\Debug\POS.ViewModel.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\bin\Debug\POS.Model.pdb
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\bin\Debug\POS.ViewModel.pdb
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\bin\Debug\EntityFramework.xml
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\bin\Debug\EntityFramework.SqlServer.xml
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\obj\Debug\POS.Repo.csprojResolveAssemblyReference.cache
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\obj\Debug\POS.Repo.dll
+E:\BOOTCAMP\MiniProject\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\obj\Debug\POS.Repo.pdb
+D:\MiniProject\sMiniProject Lengkap\backup 18.05\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\obj\Debug\POS.Repo.csprojResolveAssemblyReference.cache
+D:\MiniProject\sMiniProject Lengkap\backup 18.05\sMiniProject Lengkap 2 Maret 2017\sMiniProject\POS.Repo\obj\Debug\POS.Repo.dll
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\obj\Debug\POS.Repo.csprojResolveAssemblyReference.cache
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\obj\Debug\POS.Repo.dll
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.Repo.dll.config
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.Repo.dll
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.Repo.pdb
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\EntityFramework.dll
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\EntityFramework.SqlServer.dll
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.Model.dll
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.ViewModel.dll
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.Model.pdb
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.ViewModel.pdb
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\EntityFramework.xml
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\EntityFramework.SqlServer.xml
+D:\MiniProject\sMiniProject Lengkap\Merjing Part 2\sMiniProject\POS.Repo\obj\Debug\POS.Repo.pdb
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.Repo.dll.config
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.Repo.dll
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.Repo.pdb
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\EntityFramework.dll
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\EntityFramework.SqlServer.dll
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.Model.dll
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.ViewModel.dll
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.Model.pdb
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\POS.ViewModel.pdb
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\EntityFramework.xml
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\bin\Debug\EntityFramework.SqlServer.xml
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\obj\Debug\POS.Repo.csprojResolveAssemblyReference.cache
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\obj\Debug\POS.Repo.dll
+D:\MiniProject\sMiniProject Lengkap\Fix\Merjing Part 2\sMiniProject\POS.Repo\obj\Debug\POS.Repo.pdb

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<POS.ViewModel.TrxPoViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.outletId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.supplierId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.poNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.grandTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.statusId)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.outletId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.supplierId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.poNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.grandTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.statusId)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

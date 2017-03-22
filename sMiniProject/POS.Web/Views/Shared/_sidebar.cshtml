@@ -1,0 +1,68 @@
+﻿<section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+        <div class="pull-left image">
+            <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+            <p>@Session["EmployeeName"]</p>
+            <a href="#"><i class="fa fa-circle text-success"></i> @Session["RoleName"]</a>
+        </div>
+    </div>
+    <!-- search form -->
+    <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+            @*<input type="text" name="q" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>*@
+        </div>
+    </form>
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="treeview" id="mMaster">
+            <a href="#">
+                <i class="glyphicon glyphicon-gift"></i> <span>Master</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="~/Employee/Index" class="mMaster"><i class="fa fa-circle-o text-green"></i> Employee</a></li>
+                <li><a href="~/Item/Index" class="mMaster"><i class="fa fa-circle-o text-aqua"></i> Item</a></li>
+                <li><a href="~/Category/Index" class="mMaster"><i class="fa fa-circle-o text-green"></i> Category</a></li>
+                <li><a href="~/Outlet/Index" class="mMaster"><i class="fa fa-circle-o text-aqua"></i> Outlet</a></li>
+                <li><a href="~/Supplier/Index" class="mMaster"><i class="fa fa-circle-o text-green"></i> Supplier</a></li>
+            </ul>
+        </li>
+        <li id="mPR">
+            <a href="~/Employee/Index" class="mPR">
+                <i class="glyphicon glyphicon-thumbs-up"></i><span>Purchase Request</span>
+            </a>
+        </li>
+        <li id="mPO">
+            <a href="~/Item/Index" class="mPO">
+                <i class="fa fa-shopping-cart"></i><span>Purchase Order</span>
+            </a>
+        </li>
+        <li id="mADJ">
+            <a href="~/Adjustment/Index" class="mADJ">
+                <i class="glyphicon glyphicon-briefcase"></i><span>Adjustment</span>
+            </a>
+        </li>
+        <li id="mTS">
+            <a href="~/Outlet/Index" class="mTS">
+                <i class="fa fa-truck"></i><span>Transfer Stock</span>
+            </a>
+        </li>
+        <li id="mSO">
+            <a href="~/Supplier/Index" class="mSO">
+                <i class="fa fa-opencart"></i><span>Sales Order</span>
+            </a>
+        </li>
+    </ul>
+</section>

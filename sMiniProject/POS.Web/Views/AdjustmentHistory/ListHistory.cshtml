@@ -1,0 +1,17 @@
+﻿@model IEnumerable<POS.ViewModel.TrxAdjustmentHistoryViewModel>
+
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            On 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedOn) - 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.statusName)
+        </td>
+    </tr>
+}
+

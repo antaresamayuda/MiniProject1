@@ -1,0 +1,43 @@
+﻿@model IEnumerable<POS.ViewModel.DTVariants>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.variantName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sku)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.beginning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alertAtQty)
+        </td>
+        <td>
+            <a href="#" id="pEditVariant" class="text-green" data-id="@item.idVr" data-toggle="tooltip" title="Edit"><span class="fa fa-edit"></span></a>
+        </td>
+        <td>
+            <a href="#" class="text-danger" data-toggle="tooltip" title="Delete"><span class="fa fa-remove"></span></a>
+        </td>
+    </tr>
+}
+<script>
+    $("#pEditVariant").click(function(){
+        //alert("wo o wo oo");
+        var id = $(this).attr("data-id");
+        $.ajax({
+            url: '@Url.Action("EditVr", "Item")',
+            data: { id: id },
+            type: 'get',
+            success: function (result) {
+                //alert("wo o wo oo");
+                $(".editItemVariant").html(result);
+                $("#ModalEditItemVariant").modal("show");
+            }
+        });
+        });
+</script>

@@ -1,0 +1,60 @@
+﻿@model POS.ViewModel.TrxPoViewModel
+
+<div>
+    <h4>TrxPoViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.outletId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.outletId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.supplierId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.supplierId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.poNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grandTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grandTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.statusId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.statusId)
+        </dd>
+                
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,8 @@
+﻿@model POS.ViewModel.MstOutletViewModel
+
+<tr id="RD' + idOu + '">
+    <td id="RD-@Html.DisplayFor(x => Model.id)">
+        @Html.DisplayFor(x => Model.name)
+        @Html.Hidden("IDOutlet", Model.id)
+    </td>
+</tr>

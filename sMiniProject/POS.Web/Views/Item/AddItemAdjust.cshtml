@@ -1,0 +1,209 @@
+﻿@model IEnumerable<POS.ViewModel.MstItemViewModel>
+
+@{
+    ViewBag.Title = "Add Item Adjustment";
+}
+<div class="form-group">
+      
+        <div class="form-group" style="float:left">      
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" onkeyup="myFunction()" placeholder="Search.." id="inputSearch" onfocus="true" style="color:orange" size="50" />
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+            </div>     
+        </div>
+        <div class="form-group">
+            <table id="tableItem" class="table table-hover" >
+                <tr class="text-center" style="background-color:whitesmoke">
+                    
+                    <th>Item</th>
+                    <th align="center">In Stock</th>
+                    <th align="center">Adj. Qty.</th>
+                    <th align="center">Add</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+
+                    <tr class="text-left">
+                        
+                        <td class="fieldN" >
+                            @Html.DisplayFor(modelItem => item.name) - @Html.DisplayFor(modelItem => item.namaVariant)
+                        </td>
+                        <td class="field2" align="center">
+                            @Html.DisplayFor(modelItem => item.InStock)
+                        </td>
+                        <td align="center" >
+                            <input type="text" class="field3" id="stock-adjust" size="5" />
+                        </td>
+                        <td class="stock" align="center">
+                            <button type="submit" data-id="@Html.DisplayFor(modelItem => item.idVariant)"
+                                    data-name="@Html.DisplayFor(modelItem => item.namaVariant)"
+                                    data-stock="@Html.DisplayFor(modelItem => item.InStock)"
+                                    class="btn btn-addItemAdjust btn-primary btn-sm">
+                                <b>+</b>
+                            </button>
+                        </td>
+                        <td class="field1" align="center" style="display:none">
+                            @Html.DisplayFor(modelItem => item.idVariant)
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="5">
+                       
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-group" style="float:left">
+            <button type="button" class="btn btn-cancel2 btn-primary btn-sm">Cancel</button>           
+        </div>
+    <br /><br />
+</div>
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <script>
+        $(".btn-addItemAdjust").click(function (e) {
+            e.preventDefault();
+
+            var xvariantId1 = $(this).parent().parent().find(".field1").text();
+            var xvariantN = $(this).parent().parent().find(".fieldN").text();
+            var xInstok2 = $(this).parent().parent().find(".field2").text();
+            var xAdjustQty3 = $(this).parent().parent().find(".field3").val();
+            //alert(xTransfer1 + xTransfer2 + xTransfer3);
+            var ctr = 0;
+            var v1 = "";
+            var v2 = "";
+            var v3 = "";
+            var v4 = "";
+            var v5 = "";
+            var v6 = "";
+
+            $.each($("#isi-data >tr"), function (item, value) {
+                //var vOldVal = $(this).parent().parent().find('.field1').val();
+                var vOldVal2 = $(this).find('.field1').val();
+
+                if (vOldVal2 == parseInt(xvariantId1)) {
+                    ctr++;
+                }
+            });
+
+            if (ctr > 0) {
+                alert("Silahkan pilih item yang lain.");
+                $("#modal-form2").modal("hide");
+            } else {
+                //alert(v1 + "v1 " + v2 + "v2 " + v3 + "v3 " + xvariantId1);
+                var cetak = '<tr class="text-center">' +
+                        '<td>' +
+                        '<input type="hidden" class="field1" name="inventory[0].variantId" size="10" value="' + xvariantId1 + '" />' +
+                        '</td>' +
+                        '<td class="text-left">' + xvariantN +
+                        '<input type="hidden"  name="inventory[0].variantName" size="10" value="' + xvariantN + '" />' +
+                        '</td>' +
+                        '<td>' + xInstok2 +
+                        '<input type="hidden"  name="inventory[0].InStock" size="5" value="' + xInstok2 + '" />' +
+                        '</td>' +
+                        '<td>' + xAdjustQty3 +
+                        '<input type="hidden"  name="inventory[0].AdjustQty" size="5" value="' + xAdjustQty3 + '" />' +
+                        '</td>' +
+                        '<td><button type="button" class="btn btn-danger btn-xs btn-remove-item"> X </button></td>' +
+                        '</tr>';
+
+                $("#isi-data").append(cetak);
+
+                $("#modal-form2").modal("hide");
+                reIndexTable();
+            }
+
+
+
+        });
+
+        function reIndexTable() {
+            var rowCount = $('#isi-data tr').length;
+            //alert(rowCount);
+            if (rowCount > 0) {
+                var idx = 0;
+                $.each($("#isi-data").find("tr"), function (i, val) {
+
+                    var varvariantId = $(this).find(":input[name*='.variantId']");
+
+                    $(varvariantId).attr("name", varvariantId.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                    var varvariantN = $(this).find(":input[name*='.variantN']");
+
+                    $(varvariantN).attr("name", varvariantN.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                    var varInStock = $(this).find(":input[name*='.InStock']");
+
+                    $(varInStock).attr("name", varInStock.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+
+                    var varAdjustQty = $(this).find(":input[name*='.AdjustQty']");
+
+                    $(varAdjustQty).attr("name", varAdjustQty.attr("name").replace(/\[.*?]\s?/g, "[" + idx + "]"));
+                    idx += 1;
+                });
+            }
+        }
+
+    </script>
+    <script>
+        $("#isi-data").on("click", ".btn-remove-item", function (e) {
+            e.preventDefault();
+            $(this).parent().parent().remove();
+
+        });
+    </script>
+
+    <script>
+        $("#modal-form2").on("click", ".btn-cancel2", function (e) {
+            e.preventDefault();
+            $(".modal2").modal("hide");
+        });
+
+    </script>
+    @*<script>
+        $("#search2").keyup(function () {
+            SearchItems();
+        });
+        function SearchItems() {
+            var key = $("#searchs").val();
+            $("#isi-data").remove();
+            $(".modal-body2").append('<x id="isi-data"></x>')
+            $.ajax({
+                url: '@Url.Action("Search2","Item")',
+                data: { searchText: key },
+                type: 'get',
+                success: function (result) {
+                    $("#isi-data").append(result);
+                }
+            });
+        }
+    </script>*@
+
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("inputSearch");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tableItem");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
